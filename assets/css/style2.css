@@ -32,27 +32,53 @@
 
 
 
-/* RIGHT IMAGE WRAP */
 .td_hero_img_wrap {
   width: 50%;
   display: flex;
-  justify-content: center;
+  flex-direction: column;  
+  align-items: center;
+}
+.td_hero_img_wrap .col-lg-6 {
+  width: 100% !important;
+  max-width: 100% !important;
+  flex: 0 0 100% !important;
 }
 
-/* SQUARE IMAGE */
-.hero-image-box {
-  width: 350px;
-  height: 350px;
-  overflow: hidden;
-  border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+/* Desktop button */
+.hero-call-btn {
+  position: absolute;
+  bottom: 35%;
+  right: 20px;
 }
 
-.hero-image-box img {
+/* FORCE HIDE in desktop */
+.mobile-call-btn {
+  display: none !important;
+}
+
+/* SHOW ONLY IN MOBILE */
+@media (max-width: 991px) {
+ .mobile-call-btn {
+    display: inline-block !important;
+    width: auto;              /* full width remove */
+    padding: 10px 20px;       /* size control */
+    font-size: 14px;          /* text size reduce */
+    border-radius: 8px;
+  }
+
+}
+
+.hero-image {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  max-width: 750px;
+  height: auto;
+
+  display: block;
+  margin: 0 auto;   /* 👈 gap remove */
+
+  transform: translateY(-80px) scale(1.3); /* 👈 move up + zoom */
 }
+
 .td_list.td_style_2 {
   display: grid;
   grid-template-columns: 1fr 1fr; /* 2 columns */
@@ -497,6 +523,7 @@ max-height: 85vh;
 
 }
 
+
   /* =====================================================
    CONTACT BACKGROUND ICONS & SHAPES
 ===================================================== */
@@ -597,4 +624,29 @@ max-height: 85vh;
     display: none !important;
   }
 
+}
+.floating-call {
+  position: fixed;
+  bottom: 75px;
+  right: 20px;
+  width: 50px;   /* 👈 same as scroll */
+  height: 50px;
+
+  background: #6c4cff;   /* 👈 purple same theme */
+  color: #fff;
+
+  border-radius: 50%;
+  font-size: 18px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-decoration: none;
+  z-index: 999;
+
+  box-shadow: 0 5px 15px rgba(108, 76, 255, 0.4);
+}
+.floating-call:hover {
+  transform: scale(1.1);
 }
